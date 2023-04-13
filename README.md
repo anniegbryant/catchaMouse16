@@ -42,6 +42,13 @@ To compile, simply run the makefile inside the 'C' folder using
 $ make
 ```
 
+If you run into errors with the GCC compiler not locating your gsl installation path, you can try adding the outputs from the `gsl-config` command above to the `C/Makefile` file by adding the following lines:
+```
+CFLAGS += I[include_path_from_gsl-config]
+CFLAGS += L[lib_path_from_gsl-config] -lgsl
+```
+And then retry running `make` from the `C` directory.
+
 ### Usage
 Then run the executable file (make sure you have provided the correct csv or text file name containing the time series data)
 ```
